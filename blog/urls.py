@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path
+from . import email
 from . import views
 urlpatterns = [
     path('', views.PostListView.as_view(), name='blog-home'),
@@ -9,5 +10,5 @@ urlpatterns = [
     path('post/<int:pk>/update/', views.PostUpdateView.as_view(), name='post-update'),
     path('post/<int:pk>/delete/', views.PostDeleteView.as_view(), name='post-delete'),
     path('user/<str:username>/', views.UserPostListView.as_view(), name='user-posts'),
-
+    path('email/',email.simple_email,name='email')
 ]
